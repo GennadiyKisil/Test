@@ -8,9 +8,9 @@ namespace HID
     {
         static void Main(string[] args)
         {
-            Older.Prop1 p = new Older.Prop1();
-            Console.WriteLine(p.Opc1());
-            Console.WriteLine(p.ToString());
+            Console.WriteLine(Older.Prop1.a);
+            //Console.WriteLine(p.Opc1());
+            //Console.WriteLine(p.ToString());
             Console.WriteLine("Hello World!");
             Console.ReadKey();
         }
@@ -23,6 +23,11 @@ namespace Older
 {
     class Prop1 : Prop
     {
+        private Prop1()
+        {
+
+        }
+
         public override string Opc1()
         {
             return "This method in base class overriden.";
