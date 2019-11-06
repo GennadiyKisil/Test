@@ -25,6 +25,9 @@ namespace Older
     class Prop1 : Prop
     {
         private Ego instance;
+
+        private Ego Instance { get => instance; set => instance = value; }
+
         class Ego
         {
             public string l = "hello";
