@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using HidSharp;
 
 namespace HID
 {
@@ -9,8 +8,10 @@ namespace HID
         static void Main(string[] args)
         {
             Console.WriteLine(Older.Prop1.a);
-            //Console.WriteLine(p.Opc1());
-            //Console.WriteLine(p.ToString());
+            Older.Prop1 p = new Older.Prop1();
+            
+            Console.WriteLine(p.Opc1());
+            Console.WriteLine(p.ToString());
             Console.WriteLine("Hello World!");
             Console.ReadKey();
         }
@@ -23,14 +24,20 @@ namespace Older
 {
     class Prop1 : Prop
     {
-        private Prop1()
+        private Ego instance;
+        class Ego
         {
+            public string l = "hello";
+        }
 
+        public Prop1()
+        {
+            instance = new Ego();
         }
 
         public override string Opc1()
         {
-            return "This method in base class overriden.";
+            return "This method in base class overriden."+instance.l;
         }
     }
     abstract class Prop
