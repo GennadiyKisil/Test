@@ -9,7 +9,6 @@ namespace HID
         static void Main(string[] args)
         {
             Older.Prop1 p = new Older.Prop1();
-
             Console.WriteLine(p.Opc1());
             Console.WriteLine(p.ToString());
             Console.WriteLine("Hello World!");
