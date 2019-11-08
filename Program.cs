@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Older;
 
 namespace HID
 {
@@ -9,6 +10,13 @@ namespace HID
         {
             Console.WriteLine(Older.Prop1.a);
             Older.Prop1 p = new Older.Prop1();
+
+            Prop1.Ego ego1 = new Prop1.Ego();
+            ego1.l = "Hello ";
+            Prop1.Ego ego2 = new Prop1.Ego();
+            ego2.l = "world, first records.";            
+            Console.WriteLine((ego1 + ego2).ToString());
+
             
             Console.WriteLine(p.Opc1());
             Console.WriteLine(p.ToString());
@@ -28,8 +36,13 @@ namespace Older
 
         private Ego Instance { get => instance; set => instance = value; }
 
-        class Ego
+        public class Ego
         {
+            public static string operator +(Ego e1, Ego e2)
+            {
+                return e1.l + e2.l;
+            }
+
             public string l = "hello";
         }
 
@@ -42,6 +55,8 @@ namespace Older
         {
             return "This method in base class overriden."+instance.l;
         }
+
+        
     }
     abstract class Prop
     {
